@@ -1,0 +1,27 @@
+
+
+####################################################
+#                                                  #
+#  Steps to compile,create jars and Run on hadoop  #
+#                                                  #
+####################################################
+
+Compile your files in a directory
+
+   javac -classpath /opt/hadoop/share/hadoop/common/hadoop-common-2.6.0.jar *.java
+
+     ### Here, classpath should contain all the jars that are needed for your files to compile.
+
+
+Create a Jar file
+
+   jar -cvf FileSystemExamples.jar *.class
+
+     ### Here, you have to package all class files into a jar.
+
+
+Run it on Hadoop
+
+    hadoop jar <yourjar file name> <class that you want to run> <arguments for your program>   
+
+    Example -  hadoop jar FileSystemExamples.jar FileSystemDoubleCat hdfs://localhost:9000/user/hareesh/test.txt
